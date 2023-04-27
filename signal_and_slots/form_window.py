@@ -6,7 +6,7 @@ import sys
 
 class FormWindow(Qtw.QWidget):
 
-    submitted = Qtc.Signal(str)
+    submitted = Qtc.Signal([str], [int, str])
 
     def __init__(self):
         super(FormWindow, self).__init__()
@@ -20,8 +20,13 @@ class FormWindow(Qtw.QWidget):
         self.layout().addWidget(self.submit)
 
     def onSubmit(self):
-        self.submitted.emit(self.edit.text())
+        if self.edit.text().isdigit():
+            text = self.edit.text()
+            self.submitted[int, str].emit(int(text), text)
+        else:
+            self.submitted[str].emit(self.edit.text())
         self.close()
+
 
 
 class MainWindow(Qtw.QWidget):
@@ -36,9 +41,17 @@ class MainWindow(Qtw.QWidget):
         self.layout().addWidget(self.label)
         self.layout().addWidget(self.change)
 
+    def onSubmittedStr(self, string):
+        self.label.setText(string)
+    
+    def onSubmittedIntStr(self, integer, string):
+        text = f"The string {string} becomes the number {integer}"
+        self.label.setText(text)
+
     def onChange(self):
         self.form_window = FormWindow()
-        self.form_window.submitted.connect(self.label.setText)
+        self.form_window.submitted[str].connect(self.onSubmittedStr)
+        self.form_window.submitted[int, str].connect(self.onSubmittedIntStr)
         self.form_window.show()  
 
 

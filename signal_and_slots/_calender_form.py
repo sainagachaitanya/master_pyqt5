@@ -4,6 +4,8 @@ import sys
 
 
 class CalenderApp(Qtw.QWidget):
+    event = {}
+
     def __init__(self):
         super(CalenderApp, self).__init__()
 
