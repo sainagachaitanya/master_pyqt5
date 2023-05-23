@@ -1,0 +1,52 @@
+* {
+  background-color: rgba(44,49,58,255);
+  color: rgba(211,216,222,255);
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  margin-left: 15px;
+}
+
+QListWidget {
+  border: none;
+}
+
+QListWidget::item {
+  height: 22px;
+}
+
+QListWidget::item:hover {
+  background-color: rgba(128,128,128,128);
+  padding-left: 4px;
+}
+
+QListWidget::item:selected {
+  background-color: rgba(63,98,121,255);
+  padding-left: 4px;
+}
+
+QListWidget::item:selected:hover {
+  background-color: #6ba7ce;
+}
+
+QLineEdit {
+  background-color: rgba(33,37,43,255);
+  padding: 6px;
+  height: 10px;
+  margin-bottom: 15px;
+  /* background-image: url(filter.png);
+  background-repeat: no-repeat;
+  background-position: left center;
+  background-size: 10px;
+  padding-left: 20px; */
+}
+
+QLineEdit[placeholderText] {
+  font-size: 12px;
+  font-style: italic;
+}
+
+#choose_project {
+  font-size: 22px;
+  font-weight: bold;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}

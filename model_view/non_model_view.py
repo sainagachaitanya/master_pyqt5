@@ -34,6 +34,8 @@ class MainWindow(Qtw.QMainWindow):
                     fh.write(self.filecontent.toPlainText())
             except Exception as e:
                 error = f"Cannot write file: {e}"
+            if error:
+                Qtw.QMessageBox.critical(None, "Error", error)
 
 if __name__ == '__main__':
     app = Qtw.QApplication(sys.argv)
