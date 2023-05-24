@@ -27,18 +27,6 @@ QListWidget::item:selected:hover {
   background-color: #6ba7ce;
 }
 
-QLineEdit {
-  background-color: rgba(33,37,43,255);
-  padding: 6px;
-  height: 10px;
-  margin-bottom: 15px;
-  /* background-image: url(filter.png);
-  background-repeat: no-repeat;
-  background-position: left center;
-  background-size: 10px;
-  padding-left: 20px; */
-}
-
 QLineEdit[placeholderText] {
   font-size: 12px;
   font-style: italic;
@@ -49,4 +37,14 @@ QLineEdit[placeholderText] {
   font-weight: bold;
   margin-top: 15px;
   margin-bottom: 15px;
+}
+
+#filter_project {
+  background-color: rgba(33,37,43,255);
+  height: 24px;
+  margin-bottom: 15px;
+  background-image: url(filter-16.ico);
+  background-repeat: no-repeat;
+  background-position: left center;
+  padding-left: 20px;
 }

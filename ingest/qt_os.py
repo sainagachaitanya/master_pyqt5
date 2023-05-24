@@ -2,9 +2,9 @@
 from PySide2 import QtWidgets as Qtw
 
 
-class Widget(Qtw.QWidget):
+class QWidget(Qtw.QWidget):
     def __init__(self, parent=None):
-        super(Widget, self).__init__(parent)
+        super(QWidget, self).__init__(parent)
 
     def showEvent(self, event):
         super().showEvent(event)

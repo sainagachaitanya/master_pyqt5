@@ -6,10 +6,13 @@ from PySide2 import QtWidgets as Qtw
 from PySide2 import QtCore as Qtc
 
 # Import Custom Widget
-from widget import Widget
+from qt_os import QWidget
+
+# Import StyleSheet
+from utils import style
 
 
-class Project(Widget):
+class Project(QWidget):
     def __init__(self, parent=None):
         super(Project, self).__init__(parent)
 
@@ -22,6 +25,7 @@ class Project(Widget):
         # Call Widgets and Layout Methods
         self.create_widgets()
         self.create_layouts()
+        self.create_connections()
 
         # StyleSheet
         self.setStyleSheet(style())
@@ -41,6 +45,7 @@ class Project(Widget):
         self.chooseproject_label.setObjectName("choose_project")
 
         self.filter_line.setPlaceholderText("Filter Project...")
+        self.filter_line.setObjectName("filter_project")
         
         self.confirm_button.setText("Confirm")
         self.confirm_button.setMinimumHeight(20)
@@ -67,11 +72,8 @@ class Project(Widget):
 
         self.setLayout(main_layout)
 
-
-def style():
-    with open("project.css", "r") as f:
-        stylesheet = f.read()
-    return stylesheet
+    def create_connections(self):
+        self.cancel_button.clicked.connect(self.close)
 
 
 def show():
